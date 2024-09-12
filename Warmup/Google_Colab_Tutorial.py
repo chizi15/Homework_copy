@@ -91,6 +91,19 @@ get_ipython().system('ls')
 # In[ ]:
 
 
+try:
+    from google.colab import drive
+    IN_COLAB = True
+except ImportError:
+    IN_COLAB = False
+
+if IN_COLAB:
+    drive.mount('/content/drive')
+else:
+    print("Not running in Google Colab")
+    # 在本地环境中执行其他操作
+
+
 from google.colab import drive
 drive.mount('/content/drive')
 
